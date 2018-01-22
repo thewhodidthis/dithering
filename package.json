@@ -1,0 +1,42 @@
+{
+  "name": "@thewhodidthis/dither",
+  "version": "0.0.0",
+  "description": "3-bit implementations of the most common algorithms",
+  "main": "index",
+  "module": "index.mjs",
+  "homepage": "https://github.com/thewhodidthis/dither#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thewhodidthis/dither.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thewhodidthis/dither/issues"
+  },
+  "scripts": {
+    "pretest": "eslint test.js",
+    "test": "node test.js",
+    "prestart": "eslint index.mjs",
+    "start": "rollup -f cjs index.mjs | buble > index.js"
+  },
+  "eslintConfig": {
+    "extends": "@thewhodidthis"
+  },
+  "engines": {
+    "node": ">=6.4.0",
+    "npm": ">=3.11.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@thewhodidthis/eslint-config": "latest",
+    "buble": "latest",
+    "eslint": "latest",
+    "rollup": "latest",
+    "tapeless": "latest"
+  },
+  "keywords": [
+    "pixels",
+    "canvas"
+  ],
+  "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
+  "license": "Unlicense"
+}
