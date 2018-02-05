@@ -1,7 +1,7 @@
 {
   "name": "@thewhodidthis/dither",
   "version": "0.0.0",
-  "description": "3-bit implementations of the most common algorithms",
+  "description": "Helps produce ordered and spatial dithering patterns",
   "main": "index",
   "module": "index.mjs",
   "homepage": "https://github.com/thewhodidthis/dither#readme",
@@ -15,8 +15,11 @@
   "scripts": {
     "pretest": "eslint test.js",
     "test": "node test.js",
-    "prestart": "eslint index.mjs",
-    "start": "rollup -f cjs index.mjs | buble > index.js"
+    "prestart": "eslint *.mjs",
+    "start": "rollup -f cjs index.mjs | buble > index.js",
+    "poststart": "rollup -f iife -n dither index.mjs | buble > example/filter.js",
+    "preexample": "eslint example/index.es",
+    "example": "cd example; rollup -f iife index.es | buble | grep -v '^//' | uniq > index.js"
   },
   "eslintConfig": {
     "extends": "@thewhodidthis"
@@ -35,6 +38,10 @@
   },
   "keywords": [
     "pixels",
+    "bayer",
+    "floyd-steinberg",
+    "dithering",
+    "graphics",
     "canvas"
   ],
   "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
