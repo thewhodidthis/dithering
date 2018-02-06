@@ -1,8 +1,3 @@
-import * as matrix from '../matrix.mjs'
-
-const images = document.querySelectorAll('canvas img')
-const boards = document.querySelectorAll('canvas')
-
 if (window !== window.top) {
   document.documentElement.classList.add('is-iframe')
 }
@@ -10,48 +5,46 @@ if (window !== window.top) {
 const params = [
   {
     nature: 'ordered',
-    lookup: Array(4).fill(2)
+    lookup: 'bayer16'
   },
   {
     nature: 'ordered',
-    lookup: [0, 2, 3, 1]
-  },
-  {
-    nature: 'ordered',
-    lookup: matrix.bayer16
+    lookup: 'bayer64'
   },
   {
     nature: 'spatial',
-    lookup: matrix.atkinson
+    lookup: 'atkinson'
   },
   {
     nature: 'spatial',
-    lookup: matrix.stucki
+    lookup: 'sierra2'
+  },
+  {
+    nature: 'spatial',
+    lookup: 'stucki'
   }
 ]
 
-Array.from(images).map(img => img.alt).forEach((src, i) => {
-  const config = params[i]
-  const canvas = boards[i]
+const boards = document.querySelectorAll('canvas')
+const { src: master } = document.querySelector('img')
+
+Array.from(boards).forEach((canvas, i) => {
   const target = canvas.getContext('2d')
-
-  const { width: w, height: h } = canvas
-
   const worker = new Worker('worker.js')
 
   worker.addEventListener('message', (e) => {
     target.putImageData(e.data.result, 0, 0)
   })
 
-  const master = document.createElement('img')
+  const buffer = document.createElement('img')
 
-  master.addEventListener('load', () => {
-    target.drawImage(master, 0, 0)
+  buffer.addEventListener('load', () => {
+    target.drawImage(buffer, 0, 0)
 
-    const source = target.getImageData(0, 0, w, h)
+    const source = target.getImageData(0, 0, canvas.width, canvas.height)
 
-    worker.postMessage({ config, source })
+    worker.postMessage({ config: params[i], source })
   })
 
-  master.setAttribute('src', src)
+  buffer.setAttribute('src', master)
 })
