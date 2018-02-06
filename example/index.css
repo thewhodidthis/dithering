@@ -48,6 +48,7 @@ figure::before {
 
 figcaption {
   margin: 0.5rem 0 0;
+  max-width: 540px;
 }
 
 ul {
