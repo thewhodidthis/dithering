@@ -37,14 +37,16 @@ Array.from(boards).forEach((canvas, i) => {
   })
 
   const buffer = document.createElement('img')
+  const config = params[i]
 
   buffer.addEventListener('load', () => {
     target.drawImage(buffer, 0, 0)
 
     const source = target.getImageData(0, 0, canvas.width, canvas.height)
 
-    worker.postMessage({ config: params[i], source })
+    worker.postMessage({ config, source })
   })
 
+  canvas.parentNode.setAttribute('data-type', config.lookup)
   buffer.setAttribute('src', master)
 })

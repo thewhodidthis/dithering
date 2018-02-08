@@ -41,15 +41,17 @@ Array.from(boards).forEach(function (canvas, i) {
   });
 
   var buffer = document.createElement('img');
+  var config = params[i];
 
   buffer.addEventListener('load', function () {
     target.drawImage(buffer, 0, 0);
 
     var source = target.getImageData(0, 0, canvas.width, canvas.height);
 
-    worker.postMessage({ config: params[i], source: source });
+    worker.postMessage({ config: config, source: source });
   });
 
+  canvas.parentNode.setAttribute('data-type', config.lookup);
   buffer.setAttribute('src', master);
 });
 
