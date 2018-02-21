@@ -1,4 +1,4 @@
-importScripts('filter.js')
+importScripts('dither.js')
 
 self.addEventListener('message', (e) => {
   const { config, source } = e.data
