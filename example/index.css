@@ -67,7 +67,7 @@ ul::after {
   height: 100%;
   position: absolute;
   width: 1px;
-  z-index: 101;
+  z-index: 1;
 }
 
 ul::before {
@@ -85,9 +85,26 @@ li {
   position: relative;
 }
 
+li::before {
+  color: #fff;
+  content: attr(title);
+  cursor: pointer;
+  display: inline-block;
+  font: bold 1.5rem/1 sans-serif;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%) rotateZ(0);
+  z-index: 0;
+}
+
 canvas,
 img {
   display: block;
+}
+
+canvas {
+  position: relative;
 }
 
 .is-iframe {
