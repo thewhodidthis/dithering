@@ -1,11 +1,8 @@
-(function () {
-'use strict';
-
 if (window !== window.top) {
-  document.documentElement.classList.add('is-iframe');
+  document.documentElement.classList.add('is-iframe')
 }
 
-var params = [
+const params = [
   {
     nature: 'ordered',
     lookup: 'bayer16'
@@ -26,34 +23,31 @@ var params = [
     nature: 'spatial',
     lookup: 'stucki'
   }
-];
+]
 
-var boards = document.querySelectorAll('canvas');
-var ref = document.querySelector('img');
-var master = ref.src;
+const boards = document.querySelectorAll('canvas')
+const { src: master } = document.querySelector('img')
 
-Array.from(boards).forEach(function (canvas, i) {
-  var target = canvas.getContext('2d');
-  var worker = new Worker('worker.js');
+Array.from(boards).forEach((canvas, i) => {
+  const target = canvas.getContext('2d')
+  const shadow = canvas.cloneNode().getContext('2d')
+  const worker = new Worker('worker.js')
 
-  worker.addEventListener('message', function (e) {
-    target.putImageData(e.data.result, 0, 0);
-  });
+  worker.addEventListener('message', (e) => {
+    target.putImageData(e.data.result, 0, 0)
+  })
 
-  var buffer = document.createElement('img');
-  var config = params[i];
+  const buffer = document.createElement('img')
+  const config = params[i]
 
-  buffer.addEventListener('load', function () {
-    target.drawImage(buffer, 0, 0);
+  buffer.addEventListener('load', () => {
+    shadow.drawImage(buffer, 0, 0)
 
-    var source = target.getImageData(0, 0, canvas.width, canvas.height);
+    const source = shadow.getImageData(0, 0, canvas.width, canvas.height)
 
-    worker.postMessage({ config: config, source: source });
-  });
+    worker.postMessage({ config, source })
+  })
 
-  canvas.parentNode.setAttribute('data-type', config.lookup);
-  buffer.setAttribute('src', master);
-});
-
-}());
-
+  canvas.parentNode.setAttribute('title', config.lookup)
+  buffer.setAttribute('src', master)
+})
