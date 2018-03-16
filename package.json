@@ -1,6 +1,6 @@
 {
   "name": "@thewhodidthis/dither",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Helps produce ordered and spatial dithering patterns",
   "main": "index",
   "module": "index.mjs",
