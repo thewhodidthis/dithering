@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
   typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.dither = {})));
+  (global = global || self, factory(global.dither = {}));
 }(this, (function (exports) { 'use strict';
 
   // Spatial (error diffusion)
@@ -354,6 +354,7 @@
   ];
 
   var matrix = /*#__PURE__*/Object.freeze({
+    __proto__: null,
     atkinson: atkinson,
     burkes: burkes,
     floydSteinberg: floydSteinberg,
@@ -436,9 +437,9 @@
     }
   };
 
+  exports.matrix = matrix;
   exports.ordered = ordered;
   exports.spatial = spatial;
-  exports.matrix = matrix;
 
   Object.defineProperty(exports, '__esModule', { value: true });
 
