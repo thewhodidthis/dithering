@@ -351,18 +351,18 @@ const bayer64 = [
   42, 26, 38, 22, 41, 25, 37, 21
 ];
 
-
-var matrix = Object.freeze({
-	atkinson: atkinson,
-	burkes: burkes,
-	floydSteinberg: floydSteinberg,
-	jarvisJudiceNinke: jarvisJudiceNinke,
-	sierra2: sierra2,
-	sierra3: sierra3,
-	sierraLite: sierraLite,
-	stucki: stucki,
-	bayer16: bayer16,
-	bayer64: bayer64
+var matrix = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  atkinson: atkinson,
+  burkes: burkes,
+  floydSteinberg: floydSteinberg,
+  jarvisJudiceNinke: jarvisJudiceNinke,
+  sierra2: sierra2,
+  sierra3: sierra3,
+  sierraLite: sierraLite,
+  stucki: stucki,
+  bayer16: bayer16,
+  bayer64: bayer64
 });
 
 const ordered = (table = bayer64) => {
@@ -435,6 +435,6 @@ const spatial = (model = floydSteinberg) => {
   }
 };
 
+exports.matrix = matrix;
 exports.ordered = ordered;
 exports.spatial = spatial;
-exports.matrix = matrix;
