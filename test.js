@@ -6,16 +6,16 @@ const { matrix, ordered } = require('./')
 const filter = ordered()
 const { data } = filter()
 
-equal(typeof filter, 'function', 'returns lambda on init', 'will default')
-equal(data.length, 0)
+equal.test(data.length, 0)
+ok.describe('returns lambda on init', 'will default').test(typeof filter, 'function')
 
 const keys = 'floydSteinberg bayer64'.split(' ')
 
 for (const k of keys) {
-  ok(k in matrix)
+  ok.test(k in matrix)
 }
 
 const source = { data: Uint8ClampedArray.from([1, 2, 3, 4]), width: 1 }
 const result = filter(source)
 
-equal(result.data.length, source.data.length, 'input/output size is a match', 'will operate')
+equal.describe('input/output size is a match', 'will operate').test(result.data.length, source.data.length)
