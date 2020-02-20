@@ -19,14 +19,14 @@ const canvas = Object.assign(target.canvas, { width: 180, height: 180 })
 const filter = bender()
 
 source.addEventListener('load', () => {
-    target.drawImage(source, 0, 0)
+  target.drawImage(source, 0, 0)
 
-    const pixels = target.getImageData(0, 0, canvas.width, canvas.height)
-    const result = filter(pixels)
+  const pixels = target.getImageData(0, 0, canvas.width, canvas.height)
+  const result = filter(pixels)
 
-    target.putImageData(result, 0, 0)
+  target.putImageData(result, 0, 0)
 
-    document.body.appendChild(canvas)
+  document.body.appendChild(canvas)
 })
 
 source.setAttribute('crossOrigin', 'anonymous')
