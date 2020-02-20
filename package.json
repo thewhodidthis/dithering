@@ -19,7 +19,7 @@
     "url": "git+https://github.com/thewhodidthis/dither.git"
   },
   "license": "Unlicense",
-  "author": "sChzs BkgNns <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
+  "author": "Sotiri Bakagiannis <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
   "main": "index",
   "module": "index.mjs",
   "scripts": {
