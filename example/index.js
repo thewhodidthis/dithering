@@ -1,7 +1,3 @@
-if (window !== window.top) {
-  document.documentElement.classList.add('is-iframe')
-}
-
 const params = [
   {
     nature: 'ordered',
