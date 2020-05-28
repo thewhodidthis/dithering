@@ -12,7 +12,7 @@ npm i thewhodidthis/dither
 
 ## usage
 
-Chpose between ordered or spatial and initialize with a matrix array to get an `ImageData` processing function,
+Choose between ordered or spatial and initialize with a matrix array to get an `ImageData` processing function,
 
 ```js
 import { spatial as bender } from '@thewhodidthis/dither'
