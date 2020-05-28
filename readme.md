@@ -1,12 +1,19 @@
-> 3-bit web worker friendly implementation of common dithering algorithms, ordered and spatial
+## about
+3-bit web worker friendly implementation of common dithering algorithms, ordered and spatial.
 
-### Setup
+## setup
+
+Fetch latest from GitHub,
+
 ```sh
-# Fetch latest from github
+# Includes ESM and CJS versions
 npm i thewhodidthis/dither
 ```
 
-### Usage
+## usage
+
+Chpose between ordered or spatial and initialize with a matrix array to get an `ImageData` processing function,
+
 ```js
 import { spatial as bender } from '@thewhodidthis/dither'
 
@@ -33,6 +40,7 @@ source.setAttribute('crossOrigin', 'anonymous')
 source.setAttribute('src', `//source.unsplash.com/random/${canvas.width}x${canvas.height}`)
 `````
 
-### References
+## see also
+
 - [meemooapp](https://github.com/meemoo/meemooapp/blob/master/src/nodes/image-monochrome-worker.js)
 - [FlickrDithr](https://github.com/flickr/FlickrDithr/blob/master/dither.js)
