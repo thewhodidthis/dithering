@@ -1,5 +1,5 @@
 ## about
-3-bit web worker friendly implementation of common dithering algorithms, ordered and spatial.
+3-bit Web Worker friendly implementation of common dithering algorithms, ordered and spatial.
 
 ## setup
 
