@@ -3,16 +3,16 @@
 
 ## setup
 
-Fetch latest from GitHub,
+Fetch latest from GitHub directly:
 
 ```sh
 # Includes ESM and CJS versions
-npm i thewhodidthis/dither
+npm install thewhodidthis/dither
 ```
 
 ## usage
 
-Choose between ordered or spatial and initialize with a matrix array to get an `ImageData` processing function,
+Choose between ordered or spatial and initialize with a matrix array to get an `ImageData` processing function. For example,
 
 ```js
 import { spatial as bender } from '@thewhodidthis/dither'
