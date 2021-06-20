@@ -1,7 +1,7 @@
-'use strict'
+import assert from 'tapeless'
+import { matrix, ordered } from '@thewhodidthis/dither'
 
-const { ok, equal } = require('tapeless')
-const { matrix, ordered } = require('./')
+const { ok, equal } = assert
 
 const filter = ordered()
 const { data } = filter()
