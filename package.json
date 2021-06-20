@@ -20,31 +20,20 @@
   },
   "license": "ISC",
   "author": "Sotiri Bakagiannis <sotirios.bakagiannis@gmail.com> (https://www.thewhodidthis.com)",
-  "main": "index",
-  "module": "index.mjs",
+  "type": "module",
+  "exports": "./main.js",
+  "main": "./main.js",
   "directories": {
     "example": "example"
   },
   "scripts": {
-    "preexample": "eslint example/index.js",
-    "example": "rollup -f umd -n dither -o example/dither.js index.mjs",
-    "prestart": "eslint index.mjs",
-    "start": "rollup -f cjs -o index.js index.mjs",
-    "pretest": "eslint test.js",
     "test": "node test.js"
   },
-  "eslintConfig": {
-    "extends": "@thewhodidthis"
-  },
-  "dependencies": {},
   "devDependencies": {
-    "@thewhodidthis/eslint-config": "^0.0.17",
-    "eslint": "^6.8.0",
-    "rollup": "^1.31.1",
-    "tapeless": "^0.0.9"
+    "tapeless": "^1.0.5"
   },
   "engines": {
-    "node": ">=6.11.0",
-    "npm": ">=3.10.10"
+    "node": ">=14.17.0",
+    "npm": ">=6.14.13"
   }
 }
