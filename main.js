@@ -1,4 +1,4 @@
-import * as matrix from './matrix.js'
+import * as matrix from "./matrix.js"
 
 export const ordered = (table = matrix.bayer64) => {
   const steps = Math.sqrt(table.length)
