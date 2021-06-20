@@ -1,4 +1,5 @@
 ## about
+
 3-bit Web Worker friendly implementation of common dithering algorithms, ordered and spatial.
 
 ## setup
@@ -6,7 +7,7 @@
 Fetch latest from GitHub directly:
 
 ```sh
-# Includes ESM and CJS versions
+# Add to package.json
 npm install thewhodidthis/dither
 ```
 
@@ -15,17 +16,17 @@ npm install thewhodidthis/dither
 Choose between ordered or spatial and initialize with a matrix array to get an `ImageData` processing function. For example,
 
 ```js
-import { spatial as bender } from '@thewhodidthis/dither'
+import { spatial as bender } from "@thewhodidthis/dither"
 
-const source = document.createElement('img')
-const target = document.createElement('canvas').getContext('2d')
+const source = document.createElement("img")
+const target = document.createElement("canvas").getContext("2d")
 
 const canvas = Object.assign(target.canvas, { width: 180, height: 180 })
 
 // The Floyd/Steinberg variety is default
 const filter = bender()
 
-source.addEventListener('load', () => {
+source.addEventListener("load", () => {
   target.drawImage(source, 0, 0)
 
   const pixels = target.getImageData(0, 0, canvas.width, canvas.height)
@@ -36,9 +37,12 @@ source.addEventListener('load', () => {
   document.body.appendChild(canvas)
 })
 
-source.setAttribute('crossOrigin', 'anonymous')
-source.setAttribute('src', `//source.unsplash.com/random/${canvas.width}x${canvas.height}`)
-`````
+source.setAttribute("crossOrigin", "anonymous")
+source.setAttribute(
+  "src",
+  `//source.unsplash.com/random/${canvas.width}x${canvas.height}`,
+)
+```
 
 ## see also
 
