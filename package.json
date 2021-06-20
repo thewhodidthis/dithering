@@ -27,9 +27,11 @@
     "example": "example"
   },
   "scripts": {
+    "start": "esbuild --bundle --global-name=dither --outfile=example/dither.js main.js",
     "test": "node test.js"
   },
   "devDependencies": {
+    "esbuild": "^0.12.9",
     "tapeless": "^1.0.5"
   },
   "engines": {
