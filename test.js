@@ -1,5 +1,5 @@
-import { matrix, ordered } from "@thewhodidthis/dither"
-import assert from "tapeless"
+import { assert, report } from "tapeless"
+import { matrix, ordered } from "./main.js"
 
 const { ok, equal } = assert
 
@@ -24,3 +24,5 @@ const result = filter(source)
 equal
   .describe("input/output size is a match", "will operate")
   .test(result.data.length, source.data.length)
+
+report()

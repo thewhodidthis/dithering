@@ -4,7 +4,7 @@
 
 ## setup
 
-Fetch latest from GitHub directly:
+Download from GitHub directly:
 
 ```sh
 # Add to package.json
