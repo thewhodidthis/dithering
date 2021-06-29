@@ -1,6 +1,6 @@
 {
   "name": "@thewhodidthis/dither",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Helps produce ordered and spatial dithering patterns",
   "keywords": [
     "pixels",
